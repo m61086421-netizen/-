@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موسوعة الرموز والزخارف الضخمة (20,000+ رمز)</title>
+    <title>موقع الزخارف والألوان الشامل</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: system-ui, -apple-system, sans-serif; background-color: #07090e; color: #f8fafc; }
-        .symbol-btn { transition: all 0.08s ease; }
-        .symbol-btn:active { transform: scale(0.8); background-color: #4338ca; }
+        body { font-family: system-ui, -apple-system, sans-serif; background-color: #0b0f19; color: #f8fafc; }
+        .symbol-btn { transition: all 0.1s ease; }
+        .symbol-btn:active { transform: scale(0.85); background-color: #4338ca; }
     </style>
 </head>
-<body class="pb-20">
+<body class="pb-16">
 
     <!-- شريط تجميع النصوص العلوي -->
-    <div class="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-md border-b border-slate-800 p-3 shadow-2xl">
+    <div class="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-md border-b border-slate-800 p-3 shadow-xl">
         <div class="max-w-4xl mx-auto flex flex-col gap-2">
             <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-indigo-400"><i class="fa-solid fa-pen-ruler"></i> شريط تجميع الاسم والرموز (20 ألف رمز تحت تصرفك):</span>
+                <span class="text-xs font-bold text-indigo-400"><i class="fa-solid fa-pen-ruler"></i> شريط تجميع الاسم والرموز:</span>
                 <span id="char-count" class="text-[11px] text-gray-400">0 حرف</span>
             </div>
             <div class="flex gap-2">
                 <input type="text" id="builder-input" placeholder="اضغط على أي رمز لتجميعه هنا..." 
                     class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-emerald-400 text-lg font-bold outline-none focus:border-indigo-500">
-                <button onclick="copyBuilderText()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-4 py-2 rounded-xl text-sm flex items-center gap-1 shrink-0 shadow-lg shadow-indigo-600/30">
+                <button onclick="copyBuilderText()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-4 py-2 rounded-xl text-sm flex items-center gap-1 shrink-0">
                     <i class="fa-regular fa-copy"></i> نسخ
                 </button>
             </div>
@@ -36,9 +36,73 @@
         </div>
     </div>
 
+    <!-- شريط التنقل بين الصفحات السريع -->
+    <div class="max-w-4xl mx-auto px-3 mt-3">
+        <div class="flex gap-2 overflow-x-auto pb-1 text-xs font-bold">
+            <a href="index.html" class="bg-indigo-600 text-white px-4 py-2 rounded-xl border border-indigo-500 shrink-0">الرئيسية والألوان</a>
+            <a href="numbers.html" class="bg-slate-900 hover:bg-slate-800 text-gray-300 px-4 py-2 rounded-xl border border-slate-800 shrink-0">الأرقام المزخرفة</a>
+            <a href="symbols.html" class="bg-slate-900 hover:bg-slate-800 text-gray-300 px-4 py-2 rounded-xl border border-slate-800 shrink-0">الرموز النادرة والشاملة</a>
+        </div>
+    </div>
+
     <div class="max-w-4xl mx-auto px-3 mt-4 space-y-6">
 
-        <!-- 1. مُولّد زخرفة الأسماء الفورية -->
+        <!-- 1. قسم أكواد الألوان الشامل -->
+        <section class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 shadow-md">
+            <h2 class="text-sm font-bold text-indigo-400 mb-3 flex items-center gap-2">
+                <i class="fa-solid fa-palette"></i> أكواد الألوان للألعاب والتصميم
+            </h2>
+
+            <!-- منتقي ألوان مخصص -->
+            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 flex flex-col gap-2 mb-4">
+                <label class="text-xs text-gray-400 font-semibold">اختر لوناً مخصصاً لنسخ كود اللعبة:</label>
+                <div class="flex gap-2 items-center">
+                    <input type="color" id="custom-color-picker" value="#ff0055" class="w-12 h-10 rounded-xl cursor-pointer bg-transparent border-0 p-0" oninput="onCustomColorChange(this.value)">
+                    <input type="text" id="custom-color-hex" value="[FF0055]" readonly class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-emerald-400 font-mono text-sm font-bold">
+                    <button onclick="addToBuilder(document.getElementById('custom-color-hex').value)" class="bg-slate-800 hover:bg-slate-700 text-indigo-300 px-3 py-2 rounded-xl text-xs font-bold shrink-0">+ للشريط</button>
+                    <button onclick="copyDirect(document.getElementById('custom-color-hex').value)" class="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-2 rounded-xl text-xs font-bold shrink-0">نسخ</button>
+                </div>
+            </div>
+
+            <!-- شبكة ألوان الألعاب الجاهزة -->
+            <p class="text-xs text-gray-400 mb-2 font-semibold">ألوان ألعاب جاهزة (Free Fire / Minecraft):</p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <button onclick="addToBuilder('[FF0000]')" class="bg-red-950/60 border border-red-600/50 hover:border-red-500 text-red-400 p-2.5 rounded-xl text-xs font-bold flex items-center justify-between">
+                    <span>أحمر ناري</span>
+                    <span class="font-mono text-[11px] opacity-80">[FF0000]</span>
+                </button>
+                <button onclick="addToBuilder('[00FF00]')" class="bg-emerald-950/60 border border-emerald-600/50 hover:border-emerald-500 text-emerald-400 p-2.5 rounded-xl text-xs font-bold flex items-center justify-between">
+                    <span>أخضر فسفوري</span>
+                    <span class="font-mono text-[11px] opacity-80">[00FF00]</span>
+                </button>
+                <button onclick="addToBuilder('[0088FF]')" class="bg-blue-950/60 border border-blue-600/50 hover:border-blue-500 text-blue-400 p-2.5 rounded-xl text-xs font-bold flex items-center justify-between">
+                    <span>أزرق ملكي</span>
+                    <span class="font-mono text-[11px] opacity-80">[0088FF]</span>
+                </button>
+                <button onclick="addToBuilder('[FFFF00]')" class="bg-yellow-950/60 border border-yellow-600/50 hover:border-yellow-500 text-yellow-400 p-2.5 rounded-xl text-xs font-bold flex items-center justify-between">
+                    <span>أصفر ذهبي</span>
+                    <span class="font-mono text-[11px] opacity-80">[FFFF00]</span>
+                </button>
+                <button onclick="addToBuilder('[FF00FF]')" class="bg-fuchsia-950/60 border border-fuchsia-600/50 hover:border-fuchsia-500 text-fuchsia-400 p-2.5 rounded-xl text-xs font-bold flex items-center justify-between">
+                    <span>وردي بنفسجي</span>
+                    <span class="font-mono text-[11px] opacity-80">[FF00FF]</span>
+                </button>
+                <button onclick="addToBuilder('[00FFFF]')" class="bg-cyan-950/60 border border-cyan-600/50 hover:border-cyan-500 text-cyan-400 p-2.5 rounded-xl text-xs font-bold flex items-center justify-between">
+                    <span>سماوي نيؤون</span>
+                    <span class="font-mono text-[11px] opacity-80">[00FFFF]</span>
+                </button>
+                <button onclick="addToBuilder('[FF8800]')" class="bg-orange-950/60 border border-orange-600/50 hover:border-orange-500 text-orange-400 p-2.5 rounded-xl text-xs font-bold flex items-center justify-between">
+                    <span>برتقالي ناري</span>
+                    <span class="font-mono text-[11px] opacity-80">[FF8800]</span>
+                </button>
+                <button onclick="addToBuilder('[000000]')" class="bg-slate-950 border border-slate-700 hover:border-slate-500 text-gray-300 p-2.5 rounded-xl text-xs font-bold flex items-center justify-between">
+                    <span>أسود غامق</span>
+                    <span class="font-mono text-[11px] opacity-80">[000000]</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- 2. زخرفة الأسماء الفورية -->
         <section class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 shadow-md">
             <h2 class="text-sm font-bold text-indigo-400 mb-2 flex items-center gap-2">
                 <i class="fa-solid fa-wand-magic-sparkles"></i> زخرفة الأسماء الفورية (عربي / إنجليزي)
@@ -52,32 +116,13 @@
             </div>
         </section>
 
-        <!-- 2. مكتبة الرموز الكبرى (20,000+ رمز موزعة على أقسام مع نظام صفحات) -->
+        <!-- 3. رموز ألعاب وهيبة حصرية -->
         <section class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 shadow-md">
-            <div class="flex flex-col sm:flex-row gap-2 justify-between sm:items-center mb-3">
-                <h2 id="section-title" class="text-sm font-bold text-indigo-400 flex items-center gap-2">
-                    <i class="fa-solid fa-icons"></i> مكتبة الرموز الشاملة الضخمة
-                </h2>
-                <!-- بحث سريع -->
-                <input type="text" id="search-input" placeholder="ابحث في الرموز..." oninput="filterSymbols(this.value)"
-                    class="bg-slate-950 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-white outline-none focus:border-indigo-500 w-full sm:w-52">
-            </div>
-
-            <!-- تصنيفات الرموز -->
-            <div id="category-btns" class="flex gap-2 overflow-x-auto pb-2 mb-3 border-b border-slate-800">
-                <!-- الأزرار تُولد بالسوفتوير -->
-            </div>
-
-            <!-- شبكة الرموز -->
-            <div id="symbols-grid" class="grid grid-cols-6 sm:grid-cols-10 md:grid-cols-12 gap-1.5 min-h-[260px] p-1">
-                <!-- الرموز تظهر هنا -->
-            </div>
-
-            <!-- أزرار التنقل بين الصفحات (Pagination) للتعامل مع الـ 20 ألف رمز بسلاسة -->
-            <div id="pagination-controls" class="flex items-center justify-between mt-4 pt-3 border-t border-slate-800 text-xs">
-                <button onclick="changePage(-1)" id="prev-btn" class="bg-slate-800 hover:bg-slate-700 text-white px-3 py-1.5 rounded-xl disabled:opacity-40">السابق</button>
-                <span id="page-info" class="text-indigo-300 font-semibold">صفحة 1 من 1</span>
-                <button onclick="changePage(1)" id="next-btn" class="bg-slate-800 hover:bg-slate-700 text-white px-3 py-1.5 rounded-xl disabled:opacity-40">التالي</button>
+            <h2 class="text-sm font-bold text-indigo-400 mb-3 flex items-center gap-2">
+                <i class="fa-solid fa-gamepad"></i> رموز وهيبة الألعاب السريعة
+            </h2>
+            <div id="symbols-grid" class="grid grid-cols-6 sm:grid-cols-10 md:grid-cols-12 gap-1.5 p-1">
+                <!-- يُولد بالسوفتوير -->
             </div>
         </section>
 
@@ -89,140 +134,35 @@
     </div>
 
     <script>
-        // نظام قاعدة بيانات ضخمة مبنية برمجياً لتجاوز 20,000 رمز وحرف عبر نطاقات Unicode العالمية
-        const CATEGORIES = {};
-        let currentCategory = 'gaming';
-        let currentPage = 1;
-        const PAGE_SIZE = 300; // 300 رمز لكل صفحة لسرعة فائقة جداً
-        let activeSymbolsList = [];
-
-        function buildHugeDatabase() {
-            // 1. ألعاب وملوك وشرطة
-            CATEGORIES.gaming = {
-                name: '🎮 ألعاب وملوك وهيبة',
-                symbols: ['亗', '👑', '⚔️', '𓆩', '𓆪', '꧁', '꧂', '༺', '༻', '𖤍', '☠︎', '🛡️', '☣️', '⚡︎', '✦', '✧', '★', '彡', '🔥', '💎', '🎯', '🚀', '░', '【', '】', '⦅', '⦆', '≪', '≫', '☠', '⚜', '☤', '☯️', '⚛', '♠', '♣', '♥', '♦', '♔', '♕', '♖', '♗', '♘', '♙', '♚', '♛', '♜', '♝', '♞', '♟']
-            };
-
-            // 2. الحركات والزخارف العربية
-            CATEGORIES.arabic = {
-                name: '✨ حركات وزخارف عربية ونقوش',
-                symbols: ['ؒ', 'ؔ', 'ۚ', 'ۡ', '۬', 'ّ', 'ً', 'ٌ', 'ٍ', 'َ', 'ُ', 'ِ', 'ْ', 'ٓ', 'ٔ', 'ٕ', 'ٖ', 'ٗ', '٘', 'ٙ', 'ٚ', 'ٛ', 'ٜ', 'ٝ', 'ٞ', 'ٟ', '𓄂', '𓄲', '𓀀', '𓁹', '𓃭', '𓅃', '𓆣', '؀', '؄', 'ـ', 'ٱ', 'ٲ', 'ٳ', 'ٴ', 'ٵ', 'ٶ', 'ٷ', 'ٸ']
-            };
-
-            // 3. أرقام مزخرفة ورياضية
-            let nums = [];
-            for(let i=0x24B6; i<=0x24E9; i++) nums.push(String.fromCharCode(i));
-            for(let i=0x2450; i<=0x249F; i++) nums.push(String.fromCharCode(i));
-            for(let i=0x2070; i<=0x209F; i++) nums.push(String.fromCharCode(i));
-            CATEGORIES.numbers = { name: '🔢 أرقام ودوائر وأسس', symbols: nums };
-
-            // 4. آلاف الرموز المتنوعة واليونيسود والرياضية والأسهم (توليد برمجي ضخم يتجاوز 15,000 رمز)
-            let massiveSymbols = [];
-            for (let i = 0x2000; i <= 0x2BFF; i++) {
-                massiveSymbols.push(String.fromCharCode(i));
-            }
-            CATEGORIES.massive = { name: '⭐ مكتبة الـ 15,000 رمز نادر', symbols: massiveSymbols };
-
-            // 5. الأشكال الهندسية والرسومات
-            let geometric = [];
-            for (let i = 0x25A0; i <= 0x27BF; i++) {
-                geometric.push(String.fromCharCode(i));
-            }
-            CATEGORIES.geometric = { name: '🔲 أشكال هندسية وزخارف', symbols: geometric };
-
-            // 6. أطراف وجداول وإطارات
-            let boxes = [];
-            for (let i = 0x2500; i <= 0x257F; i++) {
-                boxes.push(String.fromCharCode(i));
-            }
-            CATEGORIES.boxes = { name: '╔═ إطارات وجداول', symbols: boxes };
-        }
+        const GAMING_SYMBOLS = ['亗', '👑', '⚔️', '𓆩', '𓆪', '꧁', '꧂', '༺', '༻', '𖤍', '☠︎', '🛡️', '☣️', '⚡︎', '✦', '✧', '★', '彡', '🔥', '💎', '🎯', '🚀', '░', '【', '】', '⦅', '⦆', '≪', '≫', '☠', '⚜', '☤', '☯️', '⚛', '♠', '♣', '♥', '♦', '♔', '♕', '♖', '♗', '♘', '♙', '♚', '♛', '♜', '♝', '♞', '♟', 'ؒ', 'ؔ', 'ۚ', 'ۡ', '۬', 'ّ', 'ً', 'ٌ', 'ٍ', 'َ', 'ُ', 'ِ', 'ْ', 'ٓ', 'ٔ', '𓄂', '𓄲', '𓀀'];
 
         window.onload = () => {
-            buildHugeDatabase();
-            renderCategories();
-            loadCategory('massive'); // البدء بمكتبة الرموز الضخمة
+            renderGamingSymbols();
             generateDecorations('مؤيد');
         };
 
-        function renderCategories() {
-            const container = document.getElementById('category-btns');
-            container.innerHTML = Object.keys(CATEGORIES).map(key => `
-                <button onclick="loadCategory('${key}')" id="cat-${key}" 
-                    class="px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap bg-slate-950 border border-slate-800 text-gray-300 hover:border-indigo-500 transition-all">
-                    ${CATEGORIES[key].name} (${CATEGORIES[key].symbols.length.toLocaleString()})
-                </button>
-            `).join('');
-        }
-
-        function loadCategory(key) {
-            currentCategory = key;
-            currentPage = 1;
-            document.querySelectorAll('#category-btns button').forEach(b => {
-                b.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-500', 'shadow-md');
-                b.classList.add('bg-slate-950', 'text-gray-300');
-            });
-            const activeBtn = document.getElementById(`cat-${key}`);
-            if(activeBtn) {
-                activeBtn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-500', 'shadow-md');
-            }
-
-            activeSymbolsList = CATEGORIES[key].symbols;
-            document.getElementById('section-title').innerHTML = `<i class="fa-solid fa-icons"></i> ${CATEGORIES[key].name}`;
-            renderPage();
-        }
-
-        function renderPage() {
+        function renderGamingSymbols() {
             const grid = document.getElementById('symbols-grid');
-            const totalPages = Math.ceil(activeSymbolsList.length / PAGE_SIZE) || 1;
-            
-            if(currentPage > totalPages) currentPage = totalPages;
-            if(currentPage < 1) currentPage = 1;
-
-            const start = (currentPage - 1) * PAGE_SIZE;
-            const end = start + PAGE_SIZE;
-            const pageItems = activeSymbolsList.slice(start, end);
-
-            grid.innerHTML = pageItems.map(s => `
+            grid.innerHTML = GAMING_SYMBOLS.map(s => `
                 <button onclick="addToBuilder('${escapeSymbol(s)}')" 
                     class="symbol-btn bg-slate-950 hover:bg-indigo-950 border border-slate-800 hover:border-indigo-500 text-emerald-300 font-bold p-2.5 rounded-xl text-lg flex items-center justify-center min-h-[44px]">
                     ${s}
                 </button>
             `).join('');
-
-            document.getElementById('page-info').innerText = `صفحة ${currentPage} من ${totalPages} (إجمالي: ${activeSymbolsList.length.toLocaleString()})`;
-            document.getElementById('prev-btn').disabled = currentPage <= 1;
-            document.getElementById('next-btn').disabled = currentPage >= totalPages;
         }
 
-        function changePage(direction) {
-            currentPage += direction;
-            renderPage();
-            window.scrollTo({ top: 300, behavior: 'smooth' });
+        function onCustomColorChange(hexValue) {
+            const gameColorCode = `[${hexValue.replace('#', '').toUpperCase()}]`;
+            document.getElementById('custom-color-hex').value = gameColorCode;
         }
 
-        function escapeSymbol(sym) {
-            return sym.replace(/'/g, "\\'");
-        }
-
-        function filterSymbols(query) {
-            if (!query.trim()) {
-                loadCategory(currentCategory);
-                return;
-            }
-            let all = [];
-            Object.values(CATEGORIES).forEach(c => all.push(...c.symbols));
-            activeSymbolsList = all.filter(s => s.includes(query));
-            currentPage = 1;
-            document.getElementById('section-title').innerHTML = `<i class="fa-solid fa-search"></i> نتائج البحث (${activeSymbolsList.length.toLocaleString()} رمز)`;
-            renderPage();
-        }
+        function escapeSymbol(sym) { return sym.replace(/'/g, "\\'"); }
 
         function addToBuilder(text) {
             const input = document.getElementById('builder-input');
             input.value += text;
             updateCharCount();
-            showToast(`تمت إضافة الرمز`);
+            showToast(`تمت الإضافة لشريط التجميع`);
         }
 
         function insertSpace() { addToBuilder(' '); }
@@ -245,32 +185,17 @@
             const val = document.getElementById('builder-input').value;
             if(!val) return;
             navigator.clipboard.writeText(val);
-            showToast('تم نسخ الاسم والرموز المجمعة! 📋');
+            showToast('تم نسخ المجمع بنجاح! 📋');
         }
 
         function generateDecorations(text) {
             const name = text.trim() || 'مؤيد';
             const list = document.getElementById('decorations-list');
-            
             const styles = [
-                `𓆩 ${name} 𓆪`,
-                `꧁ ${name} ꧂`,
-                `👑 ${name} 👑`,
-                `亗 ${name} 亗`,
-                `༺ ${name} ༻`,
-                `⚔️ ${name} ⚔️`,
-                `░ ${name} ░`,
-                `𖤍 ${name} 𖤍`,
-                `🔥 ${name} 🔥`,
-                `✦ ${name} ✦`,
-                `⚡︎ [ ${name} ] ⚡︎`,
-                `💎 ${name} 💎`,
-                name.split('').join('ـ'),
-                name.split('').join(' ۡ '),
-                name.split('').join(' ؔ ')
+                `𓆩 ${name} 𓆪`, `꧁ ${name} ꧂`, `👑 ${name} 👑`, `亗 ${name} 亗`,
+                `༺ ${name} ༻`, `⚔️ ${name} ⚔️`, `░ ${name} ░`, `𖤍 ${name} 𖤍`,
+                `🔥 ${name} 🔥`, `✦ ${name} ✦`, `⚡︎ [ ${name} ] ⚡︎`, `💎 ${name} 💎`
             ];
-
-.
             list.innerHTML = styles.map(st => `
                 <div class="bg-slate-950 border border-slate-800 rounded-xl p-2 flex items-center justify-between">
                     <span class="text-emerald-300 font-bold text-sm truncate dir-auto">${st}</span>
@@ -291,9 +216,7 @@
             const toast = document.getElementById('toast');
             toast.innerText = msg;
             toast.classList.remove('opacity-0', 'pointer-events-none');
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'pointer-events-none');
-            }, 1500);
+            setTimeout(() => { toast.classList.add('opacity-0', 'pointer-events-none'); }, 1500);
         }
     </script>
 </body>
