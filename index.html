@@ -3,221 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موقع الزخارف والألوان الشامل</title>
+    <title>موسوعة رموز وألقاب فري فاير الاحترافية</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body { font-family: system-ui, -apple-system, sans-serif; background-color: #0b0f19; color: #f8fafc; }
-        .symbol-btn { transition: all 0.1s ease; }
-        .symbol-btn:active { transform: scale(0.85); background-color: #4338ca; }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="pb-16">
+<body class="text-gray-100 min-h-screen flex flex-col justify-between selection:bg-amber-400 selection:text-black">
 
-    <!-- شريط تجميع النصوص العلوي -->
-    <div class="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-md border-b border-slate-800 p-3 shadow-xl">
-        <div class="max-w-4xl mx-auto flex flex-col gap-2">
-            <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-indigo-400"><i class="fa-solid fa-pen-ruler"></i> شريط تجميع الاسم والرموز:</span>
-                <span id="char-count" class="text-[11px] text-gray-400">0 حرف</span>
-            </div>
-            <div class="flex gap-2">
-                <input type="text" id="builder-input" placeholder="اضغط على أي رمز لتجميعه هنا..." 
-                    class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-emerald-400 text-lg font-bold outline-none focus:border-indigo-500">
-                <button onclick="copyBuilderText()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold px-4 py-2 rounded-xl text-sm flex items-center gap-1 shrink-0">
-                    <i class="fa-regular fa-copy"></i> نسخ
-                </button>
-            </div>
-            <div class="flex gap-1.5 overflow-x-auto pt-1 text-xs">
-                <button onclick="insertSpace()" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 px-3 py-1.5 rounded-lg text-gray-300">مسافة</button>
-                <button onclick="backspaceBuilder()" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 px-3 py-1.5 rounded-lg text-amber-400">حذف حرف</button>
-                <button onclick="clearBuilder()" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 px-3 py-1.5 rounded-lg text-rose-400">مسح الكل</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- شريط التنقل بين الصفحات السريع -->
-    <div class="max-w-4xl mx-auto px-3 mt-3">
-        <div class="flex gap-2 overflow-x-auto pb-1 text-xs font-bold">
-            <a href="index.html" class="bg-indigo-600 text-white px-4 py-2 rounded-xl border border-indigo-500 shrink-0">الرئيسية والألوان</a>
-            <a href="numbers.html" class="bg-slate-900 hover:bg-slate-800 text-gray-300 px-4 py-2 rounded-xl border border-slate-800 shrink-0">الأرقام المزخرفة</a>
-            <a href="symbols.html" class="bg-slate-900 hover:bg-slate-800 text-gray-300 px-4 py-2 rounded-xl border border-slate-800 shrink-0">الرموز النادرة والشاملة</a>
-        </div>
-    </div>
-
-    <div class="max-w-4xl mx-auto px-3 mt-4 space-y-6">
-
-        <!-- 1. قسم أكواد الألوان الشامل -->
-        <section class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 shadow-md">
-            <h2 class="text-sm font-bold text-indigo-400 mb-3 flex items-center gap-2">
-                <i class="fa-solid fa-palette"></i> أكواد الألوان للألعاب والتصميم
-            </h2>
-
-            <!-- منتقي ألوان مخصص -->
-            <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 flex flex-col gap-2 mb-4">
-                <label class="text-xs text-gray-400 font-semibold">اختر لوناً مخصصاً لنسخ كود اللعبة:</label>
-                <div class="flex gap-2 items-center">
-                    <input type="color" id="custom-color-picker" value="#ff0055" class="w-12 h-10 rounded-xl cursor-pointer bg-transparent border-0 p-0" oninput="onCustomColorChange(this.value)">
-                    <input type="text" id="custom-color-hex" value="[FF0055]" readonly class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-emerald-400 font-mono text-sm font-bold">
-                    <button onclick="addToBuilder(document.getElementById('custom-color-hex').value)" class="bg-slate-800 hover:bg-slate-700 text-indigo-300 px-3 py-2 rounded-xl text-xs font-bold shrink-0">+ للشريط</button>
-                    <button onclick="copyDirect(document.getElementById('custom-color-hex').value)" class="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-2 rounded-xl text-xs font-bold shrink-0">نسخ</button>
+    <header class="sticky top-0 z-40 glass-panel border-b border-amber-500/20 px-4 py-3">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-red-600 flex items-center justify-center shadow-lg text-black text-2xl font-black">
+                    亗
+                </div>
+                <div>
+                    <h1 class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-amber-300 via-amber-400 to-red-500 bg-clip-text text-transparent">
+                        موسوعة رموز وألقاب FREE FIRE
+                    </h1>
+                    <p class="text-xs text-gray-400">صانع زخارف الهيبة والألقاب الملكية والألوان</p>
                 </div>
             </div>
 
-            <!-- شبكة ألوان الألعاب الجاهزة -->
-            <p class="text-xs text-gray-400 mb-2 font-semibold">ألوان ألعاب جاهزة (Free Fire / Minecraft):</p>
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                <button onclick="addToBuilder('[FF0000]')" class="bg-red-950/60 border border-red-600/50 hover:border-red-500 text-red-400 p-2.5 rounded-xl text-xs font-bold flex items-center justify-between">
-                    <span>أحمر ناري</span>
-                    <span class="font-mono text-[11px] opacity-80">[FF0000]</span>
-                </button>
-                <button onclick="addToBuilder('[00FF00]')" class="bg-emerald-950/60 border border-emerald-600/50 hover:border-emerald-500 text-emerald-400 p-2.5 rounded-xl text-xs font-bold flex items-center justify-between">
-                    <span>أخضر فسفوري</span>
-                    <span class="font-mono text-[11px] opacity-80">[00FF00]</span>
-                </button>
-                <button onclick="addToBuilder('[0088FF]')" class="bg-blue-950/60 border border-blue-600/50 hover:border-blue-500 text-blue-400 p-2.5 rounded-xl text-xs font-bold flex items-center justify-between">
-                    <span>أزرق ملكي</span>
-                    <span class="font-mono text-[11px] opacity-80">[0088FF]</span>
-                </button>
-                <button onclick="addToBuilder('[FFFF00]')" class="bg-yellow-950/60 border border-yellow-600/50 hover:border-yellow-500 text-yellow-400 p-2.5 rounded-xl text-xs font-bold flex items-center justify-between">
-                    <span>أصفر ذهبي</span>
-                    <span class="font-mono text-[11px] opacity-80">[FFFF00]</span>
-                </button>
-                <button onclick="addToBuilder('[FF00FF]')" class="bg-fuchsia-950/60 border border-fuchsia-600/50 hover:border-fuchsia-500 text-fuchsia-400 p-2.5 rounded-xl text-xs font-bold flex items-center justify-between">
-                    <span>وردي بنفسجي</span>
-                    <span class="font-mono text-[11px] opacity-80">[FF00FF]</span>
-                </button>
-                <button onclick="addToBuilder('[00FFFF]')" class="bg-cyan-950/60 border border-cyan-600/50 hover:border-cyan-500 text-cyan-400 p-2.5 rounded-xl text-xs font-bold flex items-center justify-between">
-                    <span>سماوي نيؤون</span>
-                    <span class="font-mono text-[11px] opacity-80">[00FFFF]</span>
-                </button>
-                <button onclick="addToBuilder('[FF8800]')" class="bg-orange-950/60 border border-orange-600/50 hover:border-orange-500 text-orange-400 p-2.5 rounded-xl text-xs font-bold flex items-center justify-between">
-                    <span>برتقالي ناري</span>
-                    <span class="font-mono text-[11px] opacity-80">[FF8800]</span>
-                </button>
-                <button onclick="addToBuilder('[000000]')" class="bg-slate-950 border border-slate-700 hover:border-slate-500 text-gray-300 p-2.5 rounded-xl text-xs font-bold flex items-center justify-between">
-                    <span>أسود غامق</span>
-                    <span class="font-mono text-[11px] opacity-80">[000000]</span>
-                </button>
+            <div class="flex items-center gap-2 text-xs">
+                <span class="px-3 py-1.5 rounded-lg bg-cyber-card border border-amber-500/30 text-amber-400 font-bold flex items-center gap-1">
+                    <i class="fa-solid fa-crown"></i> VIP EDITION
+                </span>
             </div>
-        </section>
+        </div>
+    </header>
 
-        <!-- 2. زخرفة الأسماء الفورية -->
-        <section class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 shadow-md">
-            <h2 class="text-sm font-bold text-indigo-400 mb-2 flex items-center gap-2">
-                <i class="fa-solid fa-wand-magic-sparkles"></i> زخرفة الأسماء الفورية (عربي / إنجليزي)
-            </h2>
-            <input type="text" id="name-input" placeholder="اكتب اسمك هنا..." 
-                class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-sm text-white outline-none focus:border-indigo-500 mb-3"
-                oninput="generateDecorations(this.value)">
+    <main class="max-w-7xl w-full mx-auto p-4 md:p-6 space-y-6 flex-grow">
 
-            <div id="decorations-list" class="grid grid-cols-1 md:grid-cols-2 gap-2 max-h-60 overflow-y-auto pr-1">
-                <!-- يُولد تلقائياً -->
-            </div>
-        </section>
+        <section class="glass-panel rounded-2xl p-5 border-2 border-amber-500/40 relative overflow-hidden">
+            <div class="flex flex-col gap-4">
+                
+                <div class="bg-black/90 rounded-xl p-4 border border-amber-500/30 relative">
+                    <div class="flex justify-between items-center text-xs text-gray-400 mb-2">
+                        <span class="text-amber-400 font-semibold flex items-center gap-1">
+                            <i class="fa-solid fa-eye"></i> المعاينة المباشرة:
+                        </span>
+                        <span id="charCounter" class="px-2 py-0.5 rounded bg-gray-800 text-gray-300 font-mono">
+                            0 / 12 حرف
+                        </span>
+                    </div>
 
-        <!-- 3. رموز ألعاب وهيبة حصرية -->
-        <section class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 shadow-md">
-            <h2 class="text-sm font-bold text-indigo-400 mb-3 flex items-center gap-2">
-                <i class="fa-solid fa-gamepad"></i> رموز وهيبة الألعاب السريعة
-            </h2>
-            <div id="symbols-grid" class="grid grid-cols-6 sm:grid-cols-10 md:grid-cols-12 gap-1.5 p-1">
-                <!-- يُولد بالسوفتوير -->
-            </div>
-        </section>
+                    <div class="min-h-[60px] flex items-center justify-center px-4">
+                        <p id="livePreview" class="text-2xl md:text-3xl font-bold text-center neon-gold-text break-all">
+                            ضع اسمك هنا...
+                        </p>
+                    </div>
 
-    </div>
-
-    <!-- تنبيه النسخ (Toast) -->
-    <div id="toast" class="fixed bottom-5 right-5 bg-emerald-600 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-2xl transition-all duration-300 opacity-0 pointer-events-none z-50">
-        تم النسخ بنجاح! 📋
-    </div>
-
-    <script>
-        const GAMING_SYMBOLS = ['亗', '👑', '⚔️', '𓆩', '𓆪', '꧁', '꧂', '༺', '༻', '𖤍', '☠︎', '🛡️', '☣️', '⚡︎', '✦', '✧', '★', '彡', '🔥', '💎', '🎯', '🚀', '░', '【', '】', '⦅', '⦆', '≪', '≫', '☠', '⚜', '☤', '☯️', '⚛', '♠', '♣', '♥', '♦', '♔', '♕', '♖', '♗', '♘', '♙', '♚', '♛', '♜', '♝', '♞', '♟', 'ؒ', 'ؔ', 'ۚ', 'ۡ', '۬', 'ّ', 'ً', 'ٌ', 'ٍ', 'َ', 'ُ', 'ِ', 'ْ', 'ٓ', 'ٔ', '𓄂', '𓄲', '𓀀'];
-
-        window.onload = () => {
-            renderGamingSymbols();
-            generateDecorations('مؤيد');
-        };
-
-        function renderGamingSymbols() {
-            const grid = document.getElementById('symbols-grid');
-            grid.innerHTML = GAMING_SYMBOLS.map(s => `
-                <button onclick="addToBuilder('${escapeSymbol(s)}')" 
-                    class="symbol-btn bg-slate-950 hover:bg-indigo-950 border border-slate-800 hover:border-indigo-500 text-emerald-300 font-bold p-2.5 rounded-xl text-lg flex items-center justify-center min-h-[44px]">
-                    ${s}
-                </button>
-            `).join('');
-        }
-
-        function onCustomColorChange(hexValue) {
-            const gameColorCode = `[${hexValue.replace('#', '').toUpperCase()}]`;
-            document.getElementById('custom-color-hex').value = gameColorCode;
-        }
-
-        function escapeSymbol(sym) { return sym.replace(/'/g, "\\'"); }
-
-        function addToBuilder(text) {
-            const input = document.getElementById('builder-input');
-            input.value += text;
-            updateCharCount();
-            showToast(`تمت الإضافة لشريط التجميع`);
-        }
-
-        function insertSpace() { addToBuilder(' '); }
-        function backspaceBuilder() {
-            const input = document.getElementById('builder-input');
-            let chars = Array.from(input.value);
-            chars.pop();
-            input.value = chars.join('');
-            updateCharCount();
-        }
-        function clearBuilder() {
-            document.getElementById('builder-input').value = '';
-            updateCharCount();
-        }
-        function updateCharCount() {
-            document.getElementById('char-count').innerText = `${Array.from(document.getElementById('builder-input').value).length} حرف`;
-        }
-
-        function copyBuilderText() {
-            const val = document.getElementById('builder-input').value;
-            if(!val) return;
-            navigator.clipboard.writeText(val);
-            showToast('تم نسخ المجمع بنجاح! 📋');
-        }
-
-        function generateDecorations(text) {
-            const name = text.trim() || 'مؤيد';
-            const list = document.getElementById('decorations-list');
-            const styles = [
-                `𓆩 ${name} 𓆪`, `꧁ ${name} ꧂`, `👑 ${name} 👑`, `亗 ${name} 亗`,
-                `༺ ${name} ༻`, `⚔️ ${name} ⚔️`, `░ ${name} ░`, `𖤍 ${name} 𖤍`,
-                `🔥 ${name} 🔥`, `✦ ${name} ✦`, `⚡︎ [ ${name} ] ⚡︎`, `💎 ${name} 💎`
-            ];
-            list.innerHTML = styles.map(st => `
-                <div class="bg-slate-950 border border-slate-800 rounded-xl p-2 flex items-center justify-between">
-                    <span class="text-emerald-300 font-bold text-sm truncate dir-auto">${st}</span>
-                    <div class="flex gap-1 shrink-0">
-                        <button onclick="addToBuilder('${escapeSymbol(st)}')" class="bg-slate-900 hover:bg-slate-800 text-indigo-300 px-2.5 py-1 rounded-lg text-xs">+ شريط</button>
-                        <button onclick="copyDirect('${escapeSymbol(st)}')" class="bg-indigo-600 hover:bg-indigo-500 text-white px-2.5 py-1 rounded-lg text-xs">نسخ</button>
+                    <div id="limitWarning" class="hidden mt-2 text-center text-xs text-red-400 font-bold animate-pulse">
+                        ⚠️ تحذير: تجاوزت 12 حرفاً (الحد المسموح في فري فاير)!
                     </div>
                 </div>
-            `).join('');
-        }
 
-        function copyDirect(text) {
-            navigator.clipboard.writeText(text);
-            showToast('تم النسخ!');
-        }
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-3">
+                    <div class="md:col-span-8 relative">
+                        <input type="text" id="nameInput" placeholder="اكتب اسمك هنا..." 
+                               class="w-full bg-cyber-card border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-amber-400 text-lg">
+                        <button id="btnClear" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-red-400">
+                            <i class="fa-solid fa-circle-xmark text-lg"></i>
+                        </button>
+                    </div>
 
-        function showToast(msg) {
-            const toast = document.getElementById('toast');
-            toast.innerText = msg;
-            toast.classList.remove('opacity-0', 'pointer-events-none');
-            setTimeout(() => { toast.classList.add('opacity-0', 'pointer-events-none'); }, 1500);
-        }
-    </script>
+                    <div class="md:col-span-4 flex gap-2">
+                        <button id="btnCopy" class="flex-1 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-extrabold py-3 px-4 rounded-xl shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-copy text-lg"></i> نسخ الاسم
+                        </button>
+                        <button id="btnAutoDecorate" class="bg-cyber-card hover:bg-gray-800 text-amber-400 border border-amber-500/40 font-bold px-4 rounded-xl transition-all active:scale-95 flex items-center gap-2" title="زخرفة ملكية">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-xs text-gray-400 mb-2 font-semibold">إطارات سريعة للتحويط:</p>
+                    <div class="flex flex-wrap gap-2">
+                        <button data-prefix="𓆩" data-suffix="𓆪" class="frame-btn glass-card px-3 py-1.5 rounded-lg text-sm text-amber-300">𓆩 الاسم 𓆪</button>
+                        <button data-prefix="𓆩 亗 " data-suffix=" 亗 𓆪" class="frame-btn glass-card px-3 py-1.5 rounded-lg text-sm text-amber-300">𓆩 亗 الاسم 亗 𓆪</button>
+                        <button data-prefix="꧁༺" data-suffix="༻꧂" class="frame-btn glass-card px-3 py-1.5 rounded-lg text-sm text-amber-300">꧁༺ الاسم ༻꧂</button>
+                        <button data-prefix="༒ " data-suffix=" ༒" class="frame-btn glass-card px-3 py-1.5 rounded-lg text-sm text-red-400">༒ الاسم ༒</button>
+                        <button data-prefix="⚡ " data-suffix=" ⚡" class="frame-btn glass-card px-3 py-1.5 rounded-lg text-sm text-yellow-400">⚡ الاسم ⚡</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="space-y-4">
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 text-sm font-bold">
+                <button id="tab-symbols" data-tab="symbols" class="tab-btn px-4 py-2.5 rounded-xl whitespace-nowrap bg-gradient-to-r from-amber-500 to-amber-600 text-black shadow-md">
+                    <i class="fa-solid fa-bolt"></i> جميع الرموز النادرة
+                </button>
+                <button id="tab-names" data-tab="names" class="tab-btn px-4 py-2.5 rounded-xl whitespace-nowrap bg-cyber-card text-gray-300 border border-gray-800">
+                    <i class="fa-solid fa-skull"></i> ألقاب جاهزة
+                </button>
+                <button id="tab-colors" data-tab="colors" class="tab-btn px-4 py-2.5 rounded-xl whitespace-nowrap bg-cyber-card text-gray-300 border border-gray-800">
+                    <i class="fa-solid fa-palette"></i> صانع بايو وأكواد الألوان
+                </button>
+            </div>
+        </section>
+
+        <section id="content-symbols" class="space-y-6">
+            <div class="glass-panel p-5 rounded-2xl">
+                <h3 class="text-amber-400 font-bold mb-3 border-b border-gray-800 pb-2">
+                    👑 رموز الملكية والهيبة (انقر لإضافة الرمز فوراً)
+                </h3>
+                <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2" id="royalGrid"></div>
+            </div>
+
+            <div class="glass-panel p-5 rounded-2xl">
+                <h3 class="text-red-400 font-bold mb-3 border-b border-gray-800 pb-2">
+                    ☠️ رموز القتال والأكواد والشر
+                </h3>
+                <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-2" id="combatGrid"></div>
+            </div>
+        </section>
+
+        <section id="content-names" class="hidden space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="readyNamesGrid"></div>
+        </section>
+
+        <section id="content-colors" class="hidden space-y-6">
+            <div class="glass-panel p-6 rounded-2xl space-y-4">
+                <h3 class="text-lg font-bold text-amber-400">🎨 مولد نصوص البايو الملونة لـ Free Fire</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold mb-1 text-gray-300">اختر اللون:</label>
+                        <input type="color" id="bioColorPicker" value="#FF0000" class="w-full h-11 bg-cyber-card border border-gray-700 rounded-xl cursor-pointer p-1">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-xs font-semibold mb-1 text-gray-300">النص المراد تلوينه:</label>
+                        <input type="text" id="bioTextInput" value="KING" class="w-full bg-cyber-card border border-gray-700 rounded-xl px-4 py-2.5 text-white">
+                    </div>
+                </div>
+
+                <div class="bg-black/80 p-4 rounded-xl border border-gray-800 space-y-2">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs text-gray-400">الكود النهائي للبايو:</span>
+                        <button id="btnCopyBio" class="text-xs bg-amber-500 hover:bg-amber-400 text-black font-bold px-3 py-1.5 rounded-lg">
+                            <i class="fa-solid fa-copy"></i> نسخ الكود
+                        </button>
+                    </div>
+                    <div id="generatedBioCode" class="font-mono text-xl text-amber-300 font-bold tracking-wider">
+                        [FF0000]KING
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-gray-800 bg-cyber-bg py-4 text-center text-xs text-gray-500">
+        <p>Free Fire Prestige Builder © 2026</p>
+    </footer>
+
+    <div id="toast" class="fixed bottom-6 right-6 bg-amber-500 text-black px-4 py-3 rounded-xl font-bold shadow-2xl flex items-center gap-2 text-sm z-50 hidden">
+        <i class="fa-solid fa-circle-check text-lg"></i>
+        <span id="toastMsg">تم النسخ بنجاح!</span>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
