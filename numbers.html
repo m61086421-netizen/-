@@ -18,7 +18,7 @@
     <div class="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-md border-b border-slate-800 p-3 shadow-xl">
         <div class="max-w-4xl mx-auto flex flex-col gap-2">
             <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-indigo-400"><i class="fa-solid fa-pen-ruler"></i> شريط التجميع:</span>
+                <span class="text-xs font-bold text-indigo-400"><i class="fa-solid fa-pen-ruler"></i> شريط تجميع الأرقام والأسس:</span>
                 <span id="char-count" class="text-[11px] text-gray-400">0 حرف</span>
             </div>
             <div class="flex gap-2">
@@ -45,13 +45,22 @@
         </div>
     </div>
 
-    <div class="max-w-4xl mx-auto px-3 mt-4">
+    <div class="max-w-4xl mx-auto px-3 mt-4 space-y-6">
         <section class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 shadow-md">
             <h2 class="text-sm font-bold text-indigo-400 mb-3 flex items-center gap-2">
-                <i class="fa-solid fa-arrow-down-1-9"></i> الأرقام والأسس والكسور المزخرفة
+                <i class="fa-solid fa-arrow-down-1-9"></i> أرقام دائرية ومزخرفة وأسس
             </h2>
+
+            <!-- أزرار التصفية بين فئات الأرقام -->
+            <div class="flex gap-2 overflow-x-auto pb-2 mb-3 border-b border-slate-800 text-xs">
+                <button onclick="showNumberSubGroup('all')" class="bg-indigo-600 text-white px-3 py-1.5 rounded-xl">الكل</button>
+                <button onclick="showNumberSubGroup('circled')" class="bg-slate-950 text-gray-300 px-3 py-1.5 rounded-xl border border-slate-800">أرقام دوائر</button>
+                <button onclick="showNumberSubGroup('squared')" class="bg-slate-950 text-gray-300 px-3 py-1.5 rounded-xl border border-slate-800">أرقام مربعات</button>
+                <button onclick="showNumberSubGroup('powers')" class="bg-slate-950 text-gray-300 px-3 py-1.5 rounded-xl border border-slate-800">أسس ومؤشرات</button>
+            </div>
+
             <div id="numbers-grid" class="grid grid-cols-6 sm:grid-cols-10 md:grid-cols-12 gap-1.5 p-1">
-                <!-- يُولد برمجياً -->
+                <!-- يُولد برمجياً بأسلوب مضمون -->
             </div>
         </section>
     </div>
@@ -59,12 +68,25 @@
     <div id="toast" class="fixed bottom-5 right-5 bg-emerald-600 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-2xl transition-all duration-300 opacity-0 pointer-events-none z-50">تم النسخ بنجاح! 📋</div>
 
     <script>
-        function generateNumbers() {
+        // مصفوفة الأرقام الشاملة والمضمونة
+        const NUMBERS_DATA = {
+            circled: ['①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧', '⑨', '⑩', '⑪', '⑫', '⑬', '⑭', '⑮', '⑯', '⑰', '⑱', '⑲', '⑳', '❶', '❷', '❸', '❹', '❺', '❻', '❼', '❽', '❾', '❿', '⓫', '⓬', '⓭', '⓮', '⓯', '⓰', '⓱', '⓲', '⓳', '⓴', '⓵', '⓶', '⓷', '⓸', '⓹', '⓺', '⓻', '⓼', '⓽', '⓾'],
+            squared: ['🄀', '⒈', '⒉', '⒊', '⒋', '⒌', '⒍', '⒎', '⒏', '⒐', '⒑', '⒒', '⒓', '⒔', '⒕', '⒖', '⒗', '⒘', '⒙', '⒚', '⒛', '⑴', '⑵', '⑶', '⑷', '⑸', '⑹', '⑺', '⑻', '⑼', '⑽', '⑾', '⑿', '⒀', '⒁', '⒂', '⒃', '⒄', '⒅', '⒆', '⒇'],
+            powers: ['⁰', '¹', '²', '³', '⁴', '⁵', '⁶', '⁷', '⁸', '⁹', '⁺', '⁻', '⁼', '⁽', '⁾', '₀', '₁', '₂', '₃', '₄', '₅', '₆', '₇', '₈', '₉', '₊', '₋', '₌', '₍', '₎', '½', '⅓', '⅔', '¼', '¾', '⅕', '⅖', '⅗', '⅘', '⅙', '⅚', '⅛', '⅜', '⅝', '⅞']
+        };
+
+        window.onload = () => {
+            showNumberSubGroup('all');
+        };
+
+        function showNumberSubGroup(group) {
             let list = [];
-            for(let i=0x24B6; i<=0x24E9; i++) list.push(String.fromCharCode(i));
-            for(let i=0x2450; i<=0x249F; i++) list.push(String.fromCharCode(i));
-            for(let i=0x2070; i<=0x209F; i++) list.push(String.fromCharCode(i));
-            
+            if (group === 'all') {
+                list = [...NUMBERS_DATA.circled, ...NUMBERS_DATA.squared, ...NUMBERS_DATA.powers];
+            } else {
+                list = NUMBERS_DATA[group] || [];
+            }
+
             const grid = document.getElementById('numbers-grid');
             grid.innerHTML = list.map(s => `
                 <button onclick="addToBuilder('${s}')" 
@@ -74,13 +96,11 @@
             `).join('');
         }
 
-        window.onload = generateNumbers;
-
         function addToBuilder(text) {
             const input = document.getElementById('builder-input');
             input.value += text;
             updateCharCount();
-            showToast(`تمت الإضافة`);
+            showToast(`تمت الإضافة لشريط التجميع`);
         }
         function insertSpace() { addToBuilder(' '); }
         function backspaceBuilder() {
